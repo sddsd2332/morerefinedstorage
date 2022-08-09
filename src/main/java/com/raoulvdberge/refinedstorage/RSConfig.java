@@ -22,6 +22,10 @@ public class RSConfig {
     public int cableUsage;
     public int constructorUsage;
     public int crafterUsage;
+    public int ironcrafterUsage;
+    public int goldcrafterUsage;
+    public int diamondcrafterUsage;
+    public int emeraldcrafterUsage;
     public int crafterPerPatternUsage;
     public int craftingMonitorUsage;
     public int crafterManagerUsage;
@@ -39,6 +43,7 @@ public class RSConfig {
     public int storageUsage;
     public int fluidStorageUsage;
     public int wirelessTransmitterUsage;
+    public int wirelessDimensionTransmitterUsage;
     public int gridUsage;
     public int craftingGridUsage;
     public int patternGridUsage;
@@ -64,6 +69,8 @@ public class RSConfig {
     //region Wireless Transmitter
     public int wirelessTransmitterBaseRange;
     public int wirelessTransmitterRangePerUpgrade;
+    public int CreativewirelessTransmitterBaseRange;
+    public int wirelessDimensionTransmitterBaseRange;
     //endregion
 
     //region Wireless Grid
@@ -180,7 +187,13 @@ public class RSConfig {
         controllerMaxReceive = config.getInt("controllerMaxReceive", ENERGY, Integer.MAX_VALUE, 0, Integer.MAX_VALUE, "The maximum energy the controller receives per tick");
         cableUsage = config.getInt("cable", ENERGY, 0, 0, Integer.MAX_VALUE, "The energy used by Cables");
         constructorUsage = config.getInt("constructor", ENERGY, 1, 0, Integer.MAX_VALUE, "The energy used by Constructors");
-        crafterUsage = config.getInt("crafter", ENERGY, 2, 1, Integer.MAX_VALUE, "The base energy used by Crafters");
+        crafterUsage = config.getInt("crafter", ENERGY, 2, 1, Integer.MAX_VALUE, "The base energy used by  Crafters");
+
+        ironcrafterUsage = config.getInt("ironcrafter", ENERGY, 15, 1, Integer.MAX_VALUE, "The base energy used by Iron Crafters");
+        goldcrafterUsage = config.getInt("goldcrafter", ENERGY, 30, 1, Integer.MAX_VALUE, "The base energy used by Gold Crafters");
+        diamondcrafterUsage = config.getInt("diamondcrafter", ENERGY, 45, 1, Integer.MAX_VALUE, "The base energy used by Diamond Crafters");
+        emeraldcrafterUsage = config.getInt("emeraldcrafter", ENERGY, 60, 1, Integer.MAX_VALUE, "The base energy used by Emerald Crafters");
+
         crafterPerPatternUsage = config.getInt("crafterPerPattern", ENERGY, 1, 0, Integer.MAX_VALUE, "The additional energy used per Pattern in a Crafter");
         craftingMonitorUsage = config.getInt("craftingMonitor", ENERGY, 2, 0, Integer.MAX_VALUE, "The energy used by Crafting Monitors");
         crafterManagerUsage = config.getInt("crafterManager", ENERGY, 4, 0, Integer.MAX_VALUE, "The energy used by Crafter Managers");
@@ -198,6 +211,7 @@ public class RSConfig {
         storageUsage = config.getInt("storage", ENERGY, 1, 1, Integer.MAX_VALUE, "The energy used by Storage Blocks");
         fluidStorageUsage = config.getInt("fluidStorage", ENERGY, 1, 0, Integer.MAX_VALUE, "The energy used by Fluid Storage Blocks");
         wirelessTransmitterUsage = config.getInt("wirelessTransmitter", ENERGY, 8, 1, Integer.MAX_VALUE, "The energy used by Wireless Transmitters");
+        wirelessDimensionTransmitterUsage = config.getInt("wirelessDimensionTransmitter",ENERGY,1600,0,Integer.MAX_VALUE,"The energy used by Wireless Dimension Transmitters");
         gridUsage = config.getInt("grid", ENERGY, 2, 0, Integer.MAX_VALUE, "The energy used by Grids");
         craftingGridUsage = config.getInt("craftingGrid", ENERGY, 4, 0, Integer.MAX_VALUE, "The energy used by Crafting Grids");
         patternGridUsage = config.getInt("patternGrid", ENERGY, 3, 0, Integer.MAX_VALUE, "The energy used by Pattern Grids");
@@ -223,6 +237,8 @@ public class RSConfig {
         //region Wireless Transmitter
         wirelessTransmitterBaseRange = config.getInt("range", WIRELESS_TRANSMITTER, 16, 0, Integer.MAX_VALUE, "The base range of the Wireless Transmitter");
         wirelessTransmitterRangePerUpgrade = config.getInt("rangePerUpgrade", WIRELESS_TRANSMITTER, 8, 0, Integer.MAX_VALUE, "The additional range per Range Upgrade in the Wireless Transmitter");
+        CreativewirelessTransmitterBaseRange = config.getInt("Creativerangerange",WIRELESS_TRANSMITTER,1000000,0,Integer.MAX_VALUE,"The additional range per Range Upgrade in the Create Wireless Transmitter");
+        wirelessDimensionTransmitterBaseRange = config.getInt("Dimensionrange",WIRELESS_TRANSMITTER,Integer.MAX_VALUE,0,Integer.MAX_VALUE,"The additional range per Range Upgrade in the Dimensionrange Wireless Transmitter");
         //endregion
 
         //region Wireless Grid

@@ -1,5 +1,10 @@
 # More Refined Storage Changelog
 
+
+# 2.3.2.1
+- add more crafters(Iron Crafters,Gold Crafter,Diamond Crafter,Emerald Crafter)
+- add Wireless Dimension Transmitter 
+
 # 2.3.2
 - Fix some options not being copied by wrench
 - Add overloaded integration

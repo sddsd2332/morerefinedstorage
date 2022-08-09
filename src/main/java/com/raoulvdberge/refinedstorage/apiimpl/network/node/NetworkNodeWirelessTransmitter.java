@@ -54,7 +54,7 @@ public class NetworkNodeWirelessTransmitter extends NetworkNode implements IWire
     public int getRange() {
         return RS.INSTANCE.config.wirelessTransmitterBaseRange +
                 (upgrades.getUpgradeCount(ItemUpgrade.TYPE_RANGE) * RS.INSTANCE.config.wirelessTransmitterRangePerUpgrade) +
-                upgrades.getUpgradeCount(ItemUpgrade.TYPE_CREATIVE_RANGE) * 1000000;
+                (upgrades.getUpgradeCount(ItemUpgrade.TYPE_CREATIVE_RANGE) * RS.INSTANCE.config.CreativewirelessTransmitterBaseRange);
     }
 
     @Override
@@ -64,6 +64,7 @@ public class NetworkNodeWirelessTransmitter extends NetworkNode implements IWire
 
     @Override
     public int getDimension() {
+
         return world.provider.getDimension();
     }
 

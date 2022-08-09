@@ -1,82 +1,36 @@
-import org.apache.tools.ant.filters.ReplaceTokens
-import java.nio.file.Paths
-
 buildscript {
     repositories {
-        maven { url = 'https://maven.minecraftforge.net' }
+	    jcenter()
+        maven { url = "https://maven.aliyun.com/repository/public" }
         mavenCentral()
+        maven { url = "https://files.minecraftforge.net/maven" }
     }
     dependencies {
-        classpath group: 'net.minecraftforge.gradle', name: 'ForgeGradle', version: '5.1.+', changing: true
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.3-SNAPSHOT'
     }
 }
-
-apply plugin: 'net.minecraftforge.gradle'
+apply plugin: 'java'
+apply plugin: 'maven'
+apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven-publish'
-apply plugin: 'idea'
 
-version = "2.3.2"
+version = "2.3.2.1"
 group = "refinedstorage"
+archivesBaseName = "morerefinedstorage-sddsd2332-beat"
 
-def tokens = [VERSION: project.version]
-def included = ['com/raoulvdberge/refinedstorage/RS.java']
-
-def expandedSrc = new File(project.buildDir, 'expandedSrc')
-def srcMainJava = project.file('src/main/java').toPath()
-def includedPaths = included.collect { Paths.get(it) }
-task javaReplaceTokens(type: Copy) {
-    inputs.property 'tokens', tokens
-    from(srcMainJava) {
-        include included
-    }
-    into expandedSrc
-    filter(ReplaceTokens, beginToken: '@', endToken: '@', tokens: tokens)
-}
-
+sourceCompatibility = targetCompatibility = '1.8' 
 compileJava {
-    dependsOn javaReplaceTokens
-    exclude {
-        srcMainJava.relativize(it.file.toPath()) in includedPaths
-    }
-    source expandedSrc
+    sourceCompatibility = targetCompatibility = '1.8'
 }
 
-java {
-    archivesBaseName = "morerefinedstorage"
-    toolchain.languageVersion = JavaLanguageVersion.of(8)
-}
 
 minecraft {
-    mappings channel: 'stable', version: '39-1.12'
-    accessTransformer = file('src/main/resources/dev_ats.cfg')
-
-    runs {
-        client {
-            workingDirectory project.file('run')
-            property 'forge.logging.markers', 'REGISTRIES'
-
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                test {
-                    source sourceSets.main
-                }
-            }
-        }
-
-        server {
-            workingDirectory project.file('run')
-
-            property 'forge.logging.markers', 'REGISTRIES'
-            property 'forge.logging.console.level', 'debug'
-
-            mods {
-                test {
-                    source sourceSets.main
-                }
-            }
-        }
-    }
+    version = "1.12.2-14.23.5.2847"
+    runDir = "run"
+    useDepAts = true
+    mappings = "stable_39"
+	replaceIn "RS.java"
+    replace "@VERSION@", project.version
 }
 
 repositories {
@@ -100,45 +54,45 @@ repositories {
     maven { url 'https://jitpack.io' }
     maven {
         url "https://cursemaven.com"
-        content {
-            includeGroup "curse.maven"
-        }
     }
 }
 
 dependencies {
-    minecraft 'net.minecraftforge:forge:1.12.2-14.23.5.2855'
 
-    compileOnly fg.deobf("mezz.jei:jei_1.12.2:4.16.1.302:api")
-    runtimeOnly fg.deobf("mezz.jei:jei_1.12.2:4.16.1.302")
+    deobfCompile "mezz.jei:jei_1.12.2:4.16.1.302:api"
+    runtime "mezz.jei:jei_1.12.2:4.16.1.302"
+    deobfCompile "li.cil.oc:OpenComputers:MC1.12.2-1.7.2.67:api"
+   // compileOnly "inventory-tweaks:InventoryTweaks:1.64+dev.146:api"
+	compile files("libs/InventoryTweaks-1.64+dev.146-api.jar")
+	
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.0'
+    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.7.0'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.0'
 
-    compileOnly fg.deobf("li.cil.oc:OpenComputers:MC1.12.2-1.7.2.67:api")
-    compileOnly("inventory-tweaks:InventoryTweaks:1.63:api")
-
-    compileOnly fg.deobf('com.github.jbredwards:Fluidlogged-API:5c18d3ff5c')
-
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.7.2'
-    testImplementation 'org.junit.jupiter:junit-jupiter-params:5.7.2'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.7.2'
-
-    compileOnly fg.deobf("curse.maven:overloaded-264601:2875265")
+    deobfCompile 'com.github.jbredwards:fluidlogged-api:a51037976d'
+    deobfCompile "curse.maven:overloaded-264601:2875265"
 }
 
 processResources {
     inputs.property "version", project.version
-    inputs.property "mcversion", minecraft_version
+    inputs.property "mcversion", project.minecraft.version
 
     setDuplicatesStrategy(DuplicatesStrategy.WARN)
     from(sourceSets.main.resources.srcDirs) {
         include 'mcmod.info'
 
-        expand 'version': project.version, 'mcversion': minecraft_version
+        expand 'version': project.version, 'mcversion':project.minecraft.version
     }
 
     from(sourceSets.main.resources.srcDirs) {
         exclude 'mcmod.info'
         exclude 'dev_ats.cfg'
     }
+}
+
+runClient {
+    args '--username', 'sddsd2332'
+    jvmArgs '-Xms4G', '-Xmx8G'
 }
 
 jar {
@@ -149,6 +103,22 @@ jar {
     include "pack.mcmeta"
 }
 
-jar.finalizedBy('reobfJar')
+task deobfJar(type: Jar) {
+    from sourceSets.main.output
+    classifier 'deobf'
+}
 
-idea { module { inheritOutputDirs = true } }
+task apiJar(type: Jar, dependsOn: 'sourceMainJava') {
+    from sourceSets.main.allSource
+    from sourceSets.main.output
+    include 'com/raoulvdberge/refinedstorage/api/**/*'
+    classifier 'api'
+}
+
+artifacts {
+    archives deobfJar
+    archives apiJar
+    archives sourceJar
+    archives jar
+}
+

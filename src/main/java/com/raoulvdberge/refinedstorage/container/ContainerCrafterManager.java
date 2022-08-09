@@ -2,6 +2,7 @@ package com.raoulvdberge.refinedstorage.container;
 
 import com.raoulvdberge.refinedstorage.apiimpl.autocrafting.CraftingPattern;
 import com.raoulvdberge.refinedstorage.apiimpl.network.node.NetworkNodeCrafter;
+import com.raoulvdberge.refinedstorage.apiimpl.network.node.advancedCrafter.*;
 import com.raoulvdberge.refinedstorage.apiimpl.network.node.NetworkNodeCrafterManager;
 import com.raoulvdberge.refinedstorage.container.slot.SlotCrafterManager;
 import com.raoulvdberge.refinedstorage.gui.IResizableDisplay;
@@ -152,6 +153,18 @@ public class ContainerCrafterManager extends ContainerBase {
                     @Override
                     public ItemStack insertItem(int slot, @Nonnull ItemStack stack, boolean simulate) {
                         if (NetworkNodeCrafter.isValidPatternInSlot(getPlayer().getEntityWorld(), stack)) {
+                            return super.insertItem(slot, stack, simulate);
+                        }
+                        if(NetworkNodeIronCrafter.isValidPatternInSlot(getPlayer().getEntityWorld(), stack)) {
+                            return super.insertItem(slot, stack, simulate);
+                        }
+                        if(NetworkNodeGoldCrafter.isValidPatternInSlot(getPlayer().getEntityWorld(), stack)) {
+                            return super.insertItem(slot, stack, simulate);
+                        }
+                        if(NetworkNodeDiamondCrafter.isValidPatternInSlot(getPlayer().getEntityWorld(), stack)) {
+                            return super.insertItem(slot, stack, simulate);
+                        }
+                        if(NetworkNodeEmeraldCrafter.isValidPatternInSlot(getPlayer().getEntityWorld(), stack)) {
                             return super.insertItem(slot, stack, simulate);
                         }
 

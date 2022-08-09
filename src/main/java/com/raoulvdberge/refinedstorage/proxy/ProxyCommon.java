@@ -28,6 +28,7 @@ import com.raoulvdberge.refinedstorage.block.info.IBlockInfo;
 import com.raoulvdberge.refinedstorage.capability.CapabilityNetworkNodeProxy;
 import com.raoulvdberge.refinedstorage.container.ContainerCrafter;
 import com.raoulvdberge.refinedstorage.container.ContainerCrafterManager;
+import com.raoulvdberge.refinedstorage.container.advancedCrafter.*;
 import com.raoulvdberge.refinedstorage.container.slot.SlotCrafterManager;
 import com.raoulvdberge.refinedstorage.gui.GuiBase;
 import com.raoulvdberge.refinedstorage.gui.GuiHandler;
@@ -152,7 +153,34 @@ public class ProxyCommon {
                     }
                 }
             }
-
+            if (container instanceof ContainerIronCrafter) {
+                for (int i = 0; i < 27; ++i) {
+                    if (container.getSlot(i).getStack() == pattern) {
+                        return true;
+                    }
+                }
+            }
+            if (container instanceof ContainerGoldCrafter) {
+                for (int i = 0; i < 45; ++i) {
+                    if (container.getSlot(i).getStack() == pattern) {
+                        return true;
+                    }
+                }
+            }
+            if (container instanceof ContainerDiamondCrafter) {
+                for (int i = 0; i < 63; ++i) {
+                    if (container.getSlot(i).getStack() == pattern) {
+                        return true;
+                    }
+                }
+            }
+            if (container instanceof ContainerEmeraldCrafter) {
+                for (int i = 0; i < 81; ++i) {
+                    if (container.getSlot(i).getStack() == pattern) {
+                        return true;
+                    }
+                }
+            }
             return false;
         });
 
@@ -229,6 +257,10 @@ public class ProxyCommon {
         registerBlock(RSBlocks.STORAGE_MONITOR);
         registerBlock(RSBlocks.SECURITY_MANAGER);
         registerBlock(RSBlocks.CRAFTER);
+        registerBlock(RSBlocks.IRONCRAFTER);
+        registerBlock(RSBlocks.GOLDCRAFTER);
+        registerBlock(RSBlocks.DIAMONDCRAFTER);
+        registerBlock(RSBlocks.EMERALDCRAFTER);
         registerBlock(RSBlocks.DISK_DRIVE);
         registerBlock(RSBlocks.STORAGE);
         registerBlock(RSBlocks.FLUID_STORAGE);
@@ -245,6 +277,7 @@ public class ProxyCommon {
         registerBlock(RSBlocks.INTERFACE);
         registerBlock(RSBlocks.FLUID_INTERFACE);
         registerBlock(RSBlocks.WIRELESS_TRANSMITTER);
+        registerBlock(RSBlocks.WIRELESS_DIMENSION_TRANSMITTER);
         registerBlock(RSBlocks.MACHINE_CASING);
         registerBlock(RSBlocks.QUARTZ_ENRICHED_IRON);
         registerBlock(RSBlocks.NETWORK_TRANSMITTER);

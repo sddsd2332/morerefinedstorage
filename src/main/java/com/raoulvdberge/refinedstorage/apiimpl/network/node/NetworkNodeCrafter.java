@@ -78,7 +78,7 @@ public class NetworkNodeCrafter extends NetworkNode implements ICraftingPatternC
 
     private int maxCraftingUpdates;
     private int craftingUpdatesLeft;
-    private int updateInterval = 10;
+    private int updateInterval = 20;
 
     private CrafterMode mode = CrafterMode.IGNORE;
 
@@ -397,19 +397,19 @@ public class NetworkNodeCrafter extends NetworkNode implements ICraftingPatternC
     private void updateUpdateInterval() {
         switch (upgrades.getUpgradeCount(ItemUpgrade.TYPE_SPEED)) {
             case 0:
-                this.updateInterval = 10;
+                this.updateInterval = 20;
                 break;
             case 1:
-                this.updateInterval = 8;
+                this.updateInterval = 18;
                 break;
             case 2:
-                this.updateInterval = 6;
+                this.updateInterval = 16;
                 break;
             case 3:
-                this.updateInterval = 4;
+                this.updateInterval = 14;
                 break;
             case 4:
-                this.updateInterval = 2;
+                this.updateInterval = 12;
                 break;
             default:
                 this.updateInterval = 1;

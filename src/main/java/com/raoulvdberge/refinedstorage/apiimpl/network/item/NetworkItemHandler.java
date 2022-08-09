@@ -1,6 +1,7 @@
 package com.raoulvdberge.refinedstorage.apiimpl.network.item;
 
 import com.raoulvdberge.refinedstorage.api.network.INetwork;
+import com.raoulvdberge.refinedstorage.api.network.IWirelessDimensionTransmitter;
 import com.raoulvdberge.refinedstorage.api.network.IWirelessTransmitter;
 import com.raoulvdberge.refinedstorage.api.network.item.INetworkItem;
 import com.raoulvdberge.refinedstorage.api.network.item.INetworkItemHandler;
@@ -27,7 +28,21 @@ public class NetworkItemHandler implements INetworkItemHandler {
         boolean inRange = false;
 
         for (INetworkNode node : network.getNodeGraph().all()) {
-            if (node instanceof IWirelessTransmitter && node.canUpdate() && ((IWirelessTransmitter) node).getDimension() == player.dimension) {
+            if (node instanceof IWirelessDimensionTransmitter && node.canUpdate()) {
+                IWirelessDimensionTransmitter transmitter = (IWirelessDimensionTransmitter) node;
+
+                double distance = Math.sqrt(Math.pow(transmitter.getOrigin().getX() - player.posX, 2) + Math.pow(transmitter.getOrigin().getY() - player.posY, 2) + Math.pow(transmitter.getOrigin().getZ() - player.posZ, 2));
+
+                if (distance < transmitter.getRange()) {
+                    inRange = true;
+
+                    break;
+                }
+            }
+        }
+
+        for (INetworkNode node : network.getNodeGraph().all()) {
+            if (node instanceof IWirelessTransmitter && node.canUpdate()  && ((IWirelessTransmitter) node).getDimension() == player.dimension) {
                 IWirelessTransmitter transmitter = (IWirelessTransmitter) node;
 
                 double distance = Math.sqrt(Math.pow(transmitter.getOrigin().getX() - player.posX, 2) + Math.pow(transmitter.getOrigin().getY() - player.posY, 2) + Math.pow(transmitter.getOrigin().getZ() - player.posZ, 2));

@@ -1,0 +1,135 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "refinedstorage:cube_cutout",
+    "textures": {
+      "particle": "refinedstorage:blocks/goldcrafter/side",
+      "side": "refinedstorage:blocks/goldcrafter/side",
+      "side_90": "refinedstorage:blocks/goldcrafter/side_90",
+      "side_180": "refinedstorage:blocks/goldcrafter/side_180",
+      "side_270": "refinedstorage:blocks/goldcrafter/side_270",
+      "cutout_side": "refinedstorage:blocks/goldcrafter/cutouts/side_disconnected",
+      "cutout_side_90": "refinedstorage:blocks/goldcrafter/cutouts/side_disconnected_90",
+      "cutout_side_180": "refinedstorage:blocks/goldcrafter/cutouts/side_disconnected_180",
+      "cutout_side_270": "refinedstorage:blocks/goldcrafter/cutouts/side_disconnected_270",
+      "front": "refinedstorage:blocks/goldcrafter/front",
+      "cutout_front": "refinedstorage:blocks/goldcrafter/cutouts/front_disconnected"
+    },
+    "uvlock": true
+  },
+  "variants": {
+    "connected": {
+      "true": {
+        "textures": {
+          "cutout_side": "refinedstorage:blocks/goldcrafter/cutouts/side_connected",
+          "cutout_side_90": "refinedstorage:blocks/goldcrafter/cutouts/side_connected_90",
+          "cutout_side_180": "refinedstorage:blocks/goldcrafter/cutouts/side_connected_180",
+          "cutout_side_270": "refinedstorage:blocks/goldcrafter/cutouts/side_connected_270",
+          "cutout_front": "refinedstorage:blocks/goldcrafter/cutouts/front_connected"
+        }
+      },
+      "false": {
+        "textures": {
+        }
+      }
+    },
+    "direction": {
+      "north": {
+        "textures": {
+          "down": "#side_180",
+          "up": "#side",
+          "north": "#front",
+          "east": "#side_90",
+          "south": "refinedstorage:blocks/goldcrafter/bottom",
+          "west": "#side_270",
+          "cutout_down": "#cutout_side_180",
+          "cutout_up": "#cutout_side",
+          "cutout_north": "#cutout_front",
+          "cutout_east": "#cutout_side_90",
+          "cutout_south": "refinedstorage:blocks/goldcrafter/bottom",
+          "cutout_west": "#cutout_side_270"
+        }
+      },
+      "east": {
+        "textures": {
+          "down": "#side_90",
+          "up": "#side_90",
+          "north": "#side_270",
+          "east": "#front",
+          "south": "#side_90",
+          "west": "refinedstorage:blocks/goldcrafter/bottom",
+          "cutout_down": "#cutout_side_90",
+          "cutout_up": "#cutout_side_90",
+          "cutout_north": "#cutout_side_270",
+          "cutout_east": "#cutout_front",
+          "cutout_south": "#cutout_side_90",
+          "cutout_west": "refinedstorage:blocks/goldcrafter/bottom"
+        }
+      },
+      "south": {
+        "textures": {
+          "down": "#side",
+          "up": "#side_180",
+          "north": "refinedstorage:blocks/goldcrafter/bottom",
+          "east": "#side_270",
+          "south": "#front",
+          "west": "#side_90",
+          "cutout_down": "#cutout_side",
+          "cutout_up": "#cutout_side_180",
+          "cutout_north": "refinedstorage:blocks/goldcrafter/bottom",
+          "cutout_east": "#cutout_side_270",
+          "cutout_south": "#cutout_front",
+          "cutout_west": "#cutout_side_90"
+        }
+      },
+      "west": {
+        "textures": {
+          "down": "#side_270",
+          "up": "#side_270",
+          "north": "#side_90",
+          "east": "refinedstorage:blocks/goldcrafter/bottom",
+          "south": "#side_270",
+          "west": "#front",
+          "cutout_down": "#cutout_side_270",
+          "cutout_up": "#cutout_side_270",
+          "cutout_north": "#cutout_side_90",
+          "cutout_east": "refinedstorage:blocks/goldcrafter/bottom",
+          "cutout_south": "#cutout_side_270",
+          "cutout_west": "#cutout_front"
+        }
+      },
+      "up": {
+        "textures": {
+          "down": "refinedstorage:blocks/goldcrafter/bottom",
+          "up": "#front",
+          "north": "#side",
+          "east": "#side",
+          "south": "#side",
+          "west": "#side",
+          "cutout_down": "refinedstorage:blocks/goldcrafter/bottom",
+          "cutout_up": "#cutout_front",
+          "cutout_north": "#cutout_side",
+          "cutout_east": "#cutout_side",
+          "cutout_south": "#cutout_side",
+          "cutout_west": "#cutout_side"
+        }
+      },
+      "down": {
+        "textures": {
+          "down": "#front",
+          "up": "refinedstorage:blocks/goldcrafter/bottom",
+          "north": "#side_180",
+          "east": "#side_180",
+          "south": "#side_180",
+          "west": "#side_180",
+          "cutout_down": "#cutout_front",
+          "cutout_up": "refinedstorage:blocks/goldcrafter/bottom",
+          "cutout_north": "#cutout_side_180",
+          "cutout_east": "#cutout_side_180",
+          "cutout_south": "#cutout_side_180",
+          "cutout_west": "#cutout_side_180"
+        }
+      }
+    }
+  }
+}

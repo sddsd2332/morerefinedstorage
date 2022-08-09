@@ -1,6 +1,7 @@
 package com.raoulvdberge.refinedstorage;
 
 import com.raoulvdberge.refinedstorage.block.*;
+import com.raoulvdberge.refinedstorage.block.advancedCrafter.*;
 
 public final class RSBlocks {
     public static final BlockController CONTROLLER = new BlockController();
@@ -19,7 +20,12 @@ public final class RSBlocks {
     public static final BlockInterface INTERFACE = new BlockInterface();
     public static final BlockCraftingMonitor CRAFTING_MONITOR = new BlockCraftingMonitor();
     public static final BlockWirelessTransmitter WIRELESS_TRANSMITTER = new BlockWirelessTransmitter();
+    public static final BlockWirelessDimensionTransmitter WIRELESS_DIMENSION_TRANSMITTER =new BlockWirelessDimensionTransmitter();
     public static final BlockCrafter CRAFTER = new BlockCrafter();
+    public static final BlockIronCrafter IRONCRAFTER = new BlockIronCrafter();
+    public static final BlockGoldCrafter GOLDCRAFTER = new BlockGoldCrafter();
+    public static final BlockDiamondCrafter DIAMONDCRAFTER = new BlockDiamondCrafter();
+    public static final BlockEmeraldCrafter EMERALDCRAFTER = new BlockEmeraldCrafter();
     public static final BlockNetworkTransmitter NETWORK_TRANSMITTER = new BlockNetworkTransmitter();
     public static final BlockNetworkReceiver NETWORK_RECEIVER = new BlockNetworkReceiver();
     public static final BlockFluidInterface FLUID_INTERFACE = new BlockFluidInterface();

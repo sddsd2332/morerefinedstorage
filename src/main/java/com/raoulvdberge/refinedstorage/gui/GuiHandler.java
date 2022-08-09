@@ -4,7 +4,10 @@ import com.raoulvdberge.refinedstorage.RSGui;
 import com.raoulvdberge.refinedstorage.apiimpl.network.node.IGuiReaderWriter;
 import com.raoulvdberge.refinedstorage.apiimpl.network.node.NetworkNodeCraftingMonitor;
 import com.raoulvdberge.refinedstorage.container.*;
+import com.raoulvdberge.refinedstorage.container.advancedCrafter.*;
+import com.raoulvdberge.refinedstorage.gui.advancedCrafter.*;
 import com.raoulvdberge.refinedstorage.tile.*;
+import com.raoulvdberge.refinedstorage.tile.advancedCrafter.*;
 import com.raoulvdberge.refinedstorage.tile.craftingmonitor.TileCraftingMonitor;
 import com.raoulvdberge.refinedstorage.tile.craftingmonitor.WirelessCraftingMonitor;
 import net.minecraft.entity.player.EntityPlayer;
@@ -44,8 +47,18 @@ public class GuiHandler implements IGuiHandler {
                 return new ContainerCraftingMonitor(((TileCraftingMonitor) tile).getNode(), (TileCraftingMonitor) tile, player);
             case RSGui.WIRELESS_TRANSMITTER:
                 return new ContainerWirelessTransmitter((TileWirelessTransmitter) tile, player);
+            case RSGui.WIRELESS_DIMENSION_TRANSMITTER:
+                return new ContainerWirelessDimensionTransmitter((TileWirelessDimensionTransmitter) tile, player);
             case RSGui.CRAFTER:
                 return new ContainerCrafter((TileCrafter) tile, player);
+            case RSGui.IRONCRAFTER:
+                return new ContainerIronCrafter((TileIronCrafter) tile, player);
+            case RSGui.GOLDCRAFTER:
+                return new ContainerGoldCrafter((TileGoldCrafter) tile, player);
+            case RSGui.DIAMONDCRAFTER:
+                return new ContainerDiamondCrafter((TileDiamondCrafter) tile, player);
+            case RSGui.EMERALDCRAFTER:
+                return new ContainerEmeraldCrafter((TileEmeraldCrafter) tile, player);
             case RSGui.NETWORK_TRANSMITTER:
                 return new ContainerNetworkTransmitter((TileNetworkTransmitter) tile, player);
             case RSGui.FLUID_INTERFACE:
@@ -112,8 +125,18 @@ public class GuiHandler implements IGuiHandler {
                 return gui;
             case RSGui.WIRELESS_TRANSMITTER:
                 return new GuiWirelessTransmitter((ContainerWirelessTransmitter) getContainer(id, player, tile));
+            case RSGui.WIRELESS_DIMENSION_TRANSMITTER:
+                return new GuiWirelessDimensionTransmitter((ContainerWirelessDimensionTransmitter) getContainer(id, player, tile));
             case RSGui.CRAFTER:
                 return new GuiCrafter((ContainerCrafter) getContainer(id, player, tile));
+            case RSGui.IRONCRAFTER:
+                return new GuiIronCrafter((ContainerIronCrafter) getContainer(id, player, tile));
+            case RSGui.GOLDCRAFTER:
+                return new GuiGoldCrafter((ContainerGoldCrafter) getContainer(id, player, tile));
+            case RSGui.DIAMONDCRAFTER:
+                return new GuiDiamondCrafter((ContainerDiamondCrafter) getContainer(id, player, tile));
+            case RSGui.EMERALDCRAFTER:
+                return new GuiEmeraldCrafter((ContainerEmeraldCrafter) getContainer(id, player, tile));
             case RSGui.FILTER:
                 return new GuiFilter(getFilterContainer(player, x));
             case RSGui.NETWORK_TRANSMITTER:

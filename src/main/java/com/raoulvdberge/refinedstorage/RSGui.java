@@ -25,4 +25,10 @@ public final class RSGui {
     public static final int SECURITY_MANAGER = 21;
     public static final int STORAGE_MONITOR = 22;
     public static final int CRAFTER_MANAGER = 23;
+    public static final int IRONCRAFTER = 24;
+    public static final int GOLDCRAFTER = 25;
+    public static final int DIAMONDCRAFTER = 26;
+    public static final int EMERALDCRAFTER = 27;
+    public static final int WIRELESS_DIMENSION_TRANSMITTER = 28;
+
 }

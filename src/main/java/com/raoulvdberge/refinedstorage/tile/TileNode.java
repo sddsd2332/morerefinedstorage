@@ -32,8 +32,8 @@ public abstract class TileNode<N extends NetworkNode> extends TileBase implement
 
     public TileNode() {
         directionHandler = new DirectionHandlerNetworkNode(this);
-
         dataManager.addWatchedParameter(REDSTONE_MODE);
+
     }
 
     @Override
