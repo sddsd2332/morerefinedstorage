@@ -1,0 +1,30 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "EPE",
+    "CMC",
+    "EAE"
+  ],
+  "key": {
+    "E": {
+      "item": "refinedstorage:quartz_enriched_iron_block"
+    },
+    "A": {
+      "item": "refinedstorage:machine_casing"
+    },
+    "M": {
+      "item": "refinedstorage:wireless_transmitter"
+    },
+    "P": {
+      "item": "refinedstorage:upgrade",
+      "data": 12
+    },
+    "C": {
+      "item": "refinedstorage:upgrade",
+      "data": 11
+    }
+  },
+  "result": {
+    "item": "refinedstorage:wireless_dimension_transmitter"
+  }
+}

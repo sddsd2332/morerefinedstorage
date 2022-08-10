@@ -70,7 +70,7 @@ public class ItemUpgrade extends ItemBase {
 
     @Override
     public boolean hasEffect(ItemStack stack) {
-        return stack.getMetadata() == TYPE_SILK_TOUCH || getFortuneLevel(stack) > 0;
+        return stack.getMetadata() == TYPE_SILK_TOUCH ||stack.getMetadata() == TYPE_CREATIVE_RANGE ||stack.getMetadata() == TYPE_DIMENSION_CARD || getFortuneLevel(stack) > 0;
     }
 
     @Override
