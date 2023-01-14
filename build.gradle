@@ -14,7 +14,7 @@ apply plugin: 'maven'
 apply plugin: 'net.minecraftforge.gradle.forge'
 apply plugin: 'maven-publish'
 
-version = "2.3.2.1"
+version = "2.3.2.3"
 group = "refinedstorage"
 archivesBaseName = "morerefinedstorage-sddsd2332-beat"
 

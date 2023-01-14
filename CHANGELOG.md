@@ -1,5 +1,17 @@
 # More Refined Storage Changelog
 
+# 2.3.2.3
+- Add Requestify[WIP]
+- Add Exposer[WIP]
+- Add more levels of importers and exporters
+- Add Creative Crafter
+- Add Neural Processor
+- Remove some duplicate GUI and block maps
+- Added a description to Crafter
+
+# 2.3.2.2
+- Add recipes for infinity range upgrade, dimension upgrade and wireless dimension transmitter;
+- Add effect for infinity range upgrade, dimension upgrade.
 
 # 2.3.2.1
 - add more crafters(Iron Crafters,Gold Crafter,Diamond Crafter,Emerald Crafter)
