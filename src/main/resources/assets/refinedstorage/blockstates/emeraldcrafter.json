@@ -3,16 +3,16 @@
   "defaults": {
     "model": "refinedstorage:cube_cutout",
     "textures": {
-      "particle": "refinedstorage:blocks/emeraldcrafter/side",
-      "side": "refinedstorage:blocks/emeraldcrafter/side",
-      "side_90": "refinedstorage:blocks/emeraldcrafter/side_90",
-      "side_180": "refinedstorage:blocks/emeraldcrafter/side_180",
-      "side_270": "refinedstorage:blocks/emeraldcrafter/side_270",
+      "particle": "refinedstorage:blocks/crafter/side",
+      "side": "refinedstorage:blocks/crafter/side",
+      "side_90": "refinedstorage:blocks/crafter/side_90",
+      "side_180": "refinedstorage:blocks/crafter/side_180",
+      "side_270": "refinedstorage:blocks/crafter/side_270",
       "cutout_side": "refinedstorage:blocks/emeraldcrafter/cutouts/side_disconnected",
       "cutout_side_90": "refinedstorage:blocks/emeraldcrafter/cutouts/side_disconnected_90",
       "cutout_side_180": "refinedstorage:blocks/emeraldcrafter/cutouts/side_disconnected_180",
       "cutout_side_270": "refinedstorage:blocks/emeraldcrafter/cutouts/side_disconnected_270",
-      "front": "refinedstorage:blocks/emeraldcrafter/front",
+      "front": "refinedstorage:blocks/crafter/front",
       "cutout_front": "refinedstorage:blocks/emeraldcrafter/cutouts/front_disconnected"
     },
     "uvlock": true
@@ -40,13 +40,13 @@
           "up": "#side",
           "north": "#front",
           "east": "#side_90",
-          "south": "refinedstorage:blocks/emeraldcrafter/bottom",
+          "south": "refinedstorage:blocks/crafter/bottom",
           "west": "#side_270",
           "cutout_down": "#cutout_side_180",
           "cutout_up": "#cutout_side",
           "cutout_north": "#cutout_front",
           "cutout_east": "#cutout_side_90",
-          "cutout_south": "refinedstorage:blocks/emeraldcrafter/bottom",
+          "cutout_south": "refinedstorage:blocks/crafter/bottom",
           "cutout_west": "#cutout_side_270"
         }
       },
@@ -57,26 +57,26 @@
           "north": "#side_270",
           "east": "#front",
           "south": "#side_90",
-          "west": "refinedstorage:blocks/emeraldcrafter/bottom",
+          "west": "refinedstorage:blocks/crafter/bottom",
           "cutout_down": "#cutout_side_90",
           "cutout_up": "#cutout_side_90",
           "cutout_north": "#cutout_side_270",
           "cutout_east": "#cutout_front",
           "cutout_south": "#cutout_side_90",
-          "cutout_west": "refinedstorage:blocks/emeraldcrafter/bottom"
+          "cutout_west": "refinedstorage:blocks/crafter/bottom"
         }
       },
       "south": {
         "textures": {
           "down": "#side",
           "up": "#side_180",
-          "north": "refinedstorage:blocks/emeraldcrafter/bottom",
+          "north": "refinedstorage:blocks/crafter/bottom",
           "east": "#side_270",
           "south": "#front",
           "west": "#side_90",
           "cutout_down": "#cutout_side",
           "cutout_up": "#cutout_side_180",
-          "cutout_north": "refinedstorage:blocks/emeraldcrafter/bottom",
+          "cutout_north": "refinedstorage:blocks/crafter/bottom",
           "cutout_east": "#cutout_side_270",
           "cutout_south": "#cutout_front",
           "cutout_west": "#cutout_side_90"
@@ -87,26 +87,26 @@
           "down": "#side_270",
           "up": "#side_270",
           "north": "#side_90",
-          "east": "refinedstorage:blocks/emeraldcrafter/bottom",
+          "east": "refinedstorage:blocks/crafter/bottom",
           "south": "#side_270",
           "west": "#front",
           "cutout_down": "#cutout_side_270",
           "cutout_up": "#cutout_side_270",
           "cutout_north": "#cutout_side_90",
-          "cutout_east": "refinedstorage:blocks/emeraldcrafter/bottom",
+          "cutout_east": "refinedstorage:blocks/crafter/bottom",
           "cutout_south": "#cutout_side_270",
           "cutout_west": "#cutout_front"
         }
       },
       "up": {
         "textures": {
-          "down": "refinedstorage:blocks/emeraldcrafter/bottom",
+          "down": "refinedstorage:blocks/crafter/bottom",
           "up": "#front",
           "north": "#side",
           "east": "#side",
           "south": "#side",
           "west": "#side",
-          "cutout_down": "refinedstorage:blocks/emeraldcrafter/bottom",
+          "cutout_down": "refinedstorage:blocks/crafter/bottom",
           "cutout_up": "#cutout_front",
           "cutout_north": "#cutout_side",
           "cutout_east": "#cutout_side",
@@ -117,13 +117,13 @@
       "down": {
         "textures": {
           "down": "#front",
-          "up": "refinedstorage:blocks/emeraldcrafter/bottom",
+          "up": "refinedstorage:blocks/crafter/bottom",
           "north": "#side_180",
           "east": "#side_180",
           "south": "#side_180",
           "west": "#side_180",
           "cutout_down": "#cutout_front",
-          "cutout_up": "refinedstorage:blocks/emeraldcrafter/bottom",
+          "cutout_up": "refinedstorage:blocks/crafter/bottom",
           "cutout_north": "#cutout_side_180",
           "cutout_east": "#cutout_side_180",
           "cutout_south": "#cutout_side_180",

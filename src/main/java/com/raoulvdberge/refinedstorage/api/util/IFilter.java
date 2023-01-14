@@ -23,7 +23,7 @@ public interface IFilter<T> {
     int getMode();
 
     /**
-     * @return true if this is a mod filter, false otherwise
+         * @return true if this is a mod filter, false otherwise
      */
     boolean isModFilter();
 }

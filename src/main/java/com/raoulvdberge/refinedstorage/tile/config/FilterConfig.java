@@ -1,5 +1,6 @@
 package com.raoulvdberge.refinedstorage.tile.config;
 
+import com.raoulvdberge.refinedstorage.RSBlocks;
 import com.raoulvdberge.refinedstorage.api.network.node.INetworkNode;
 import com.raoulvdberge.refinedstorage.api.network.node.INetworkNodeProxy;
 import com.raoulvdberge.refinedstorage.api.util.IComparer;
@@ -9,12 +10,15 @@ import com.raoulvdberge.refinedstorage.apiimpl.network.node.NetworkNodeInterface
 import com.raoulvdberge.refinedstorage.apiimpl.network.node.diskdrive.NetworkNodeDiskDrive;
 import com.raoulvdberge.refinedstorage.apiimpl.network.node.diskmanipulator.NetworkNodeDiskManipulator;
 import com.raoulvdberge.refinedstorage.apiimpl.network.node.storage.NetworkNodeFluidStorage;
+import com.raoulvdberge.refinedstorage.block.BlockBase;
 import com.raoulvdberge.refinedstorage.inventory.fluid.FluidInventory;
 import com.raoulvdberge.refinedstorage.inventory.item.ItemHandlerBase;
 import com.raoulvdberge.refinedstorage.inventory.listener.ListenerNetworkNode;
 import com.raoulvdberge.refinedstorage.tile.data.TileDataParameter;
 import com.raoulvdberge.refinedstorage.tile.data.TileDataParameterClientListener;
 import com.raoulvdberge.refinedstorage.util.StackUtils;
+import net.minecraft.block.Block;
+import net.minecraft.block.state.IBlockState;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.datasync.DataSerializers;
@@ -537,9 +541,34 @@ public class FilterConfig {
             return this;
         }
 
+
         public Builder filterSizeNine() {
-            this.itemFilterSize = 9;
-            this.fluidFilterSize = 9;
+                this.itemFilterSize = 9;
+                this.fluidFilterSize = 9;
+            return this;
+        }
+
+        public Builder filterSizeNine2() {
+            this.itemFilterSize = 18;
+            this.fluidFilterSize = 18;
+            return this;
+        }
+
+        public Builder filterSizeNine3() {
+            this.itemFilterSize = 36;
+            this.fluidFilterSize = 36;
+            return this;
+        }
+
+        public Builder filterSizeNine4() {
+            this.itemFilterSize = 54;
+            this.fluidFilterSize = 54;
+            return this;
+        }
+
+        public Builder filterSizeNine5() {
+            this.itemFilterSize = 72;
+            this.fluidFilterSize = 72;
             return this;
         }
 

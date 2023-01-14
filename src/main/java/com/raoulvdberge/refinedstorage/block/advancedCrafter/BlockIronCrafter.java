@@ -10,6 +10,8 @@ import com.raoulvdberge.refinedstorage.render.model.baked.BakedModelFullbright;
 import com.raoulvdberge.refinedstorage.tile.advancedCrafter.TileIronCrafter;
 import net.minecraft.block.state.IBlockState;
 import net.minecraft.client.renderer.block.model.ModelResourceLocation;
+import net.minecraft.client.resources.I18n;
+import net.minecraft.client.util.ITooltipFlag;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.Item;
@@ -20,6 +22,7 @@ import net.minecraft.util.EnumFacing;
 import net.minecraft.util.EnumHand;
 import net.minecraft.util.NonNullList;
 import net.minecraft.util.math.BlockPos;
+import net.minecraft.util.text.TextFormatting;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.fml.relauncher.Side;
@@ -27,6 +30,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 
 public class BlockIronCrafter extends BlockNode {
     public BlockIronCrafter() {
@@ -97,5 +101,12 @@ public class BlockIronCrafter extends BlockNode {
     @Override
     public boolean hasConnectedState() {
         return true;
+    }
+
+    @Override
+    public void addInformation(@Nonnull ItemStack stack, @Nullable World world, @Nonnull List<String> tooltip, @Nonnull ITooltipFlag flag) {
+        super.addInformation(stack, world, tooltip, flag);
+        tooltip.add(I18n.format("block.refinedstorage:crafterslot.tooltip", TextFormatting.WHITE + I18n.format("2") + I18n.format("7") + TextFormatting.GREEN));
+        tooltip.add(I18n.format("block.refinedstorage:crafterspeed.tooltip",TextFormatting.WHITE + I18n.format("1")+ TextFormatting.GREEN));
     }
 }

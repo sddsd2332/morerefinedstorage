@@ -167,7 +167,9 @@ public class ContainerCrafterManager extends ContainerBase {
                         if(NetworkNodeEmeraldCrafter.isValidPatternInSlot(getPlayer().getEntityWorld(), stack)) {
                             return super.insertItem(slot, stack, simulate);
                         }
-
+                        if(NetworkNodeCreativeCrafter.isValidPatternInSlot(getPlayer().getEntityWorld(), stack)) {
+                            return super.insertItem(slot, stack, simulate);
+                        }
                         return stack;
                     }
                 };

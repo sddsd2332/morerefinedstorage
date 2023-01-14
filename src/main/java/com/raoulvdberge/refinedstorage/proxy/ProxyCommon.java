@@ -181,11 +181,17 @@ public class ProxyCommon {
                     }
                 }
             }
+            if (container instanceof ContainerCreativeCrafter) {
+                for (int i = 0; i < 108; ++i) {
+                    if (container.getSlot(i).getStack() == pattern) {
+                        return true;
+                    }
+                }
+            }
             return false;
         });
 
-        API.instance().getReaderWriterHandlerRegistry()
-                .add(ReaderWriterHandlerRedstone.ID, tag -> new ReaderWriterHandlerRedstone());
+        API.instance().getReaderWriterHandlerRegistry().add(ReaderWriterHandlerRedstone.ID, tag -> new ReaderWriterHandlerRedstone());
 
         API.instance().getStorageDiskRegistry().add(StorageDiskFactoryItem.ID, new StorageDiskFactoryItem());
         API.instance().getStorageDiskRegistry().add(StorageDiskFactoryFluid.ID, new StorageDiskFactoryFluid());
@@ -261,6 +267,7 @@ public class ProxyCommon {
         registerBlock(RSBlocks.GOLDCRAFTER);
         registerBlock(RSBlocks.DIAMONDCRAFTER);
         registerBlock(RSBlocks.EMERALDCRAFTER);
+        registerBlock(RSBlocks.CREATIVECRAFTER);
         registerBlock(RSBlocks.DISK_DRIVE);
         registerBlock(RSBlocks.STORAGE);
         registerBlock(RSBlocks.FLUID_STORAGE);
@@ -284,6 +291,18 @@ public class ProxyCommon {
         registerBlock(RSBlocks.NETWORK_RECEIVER);
         registerBlock(RSBlocks.DISK_MANIPULATOR);
         registerBlock(RSBlocks.CRAFTER_MANAGER);
+        registerBlock(RSBlocks.ADVANCED_IMPORTER);
+        registerBlock(RSBlocks.ELITE_IMPORTER);
+        registerBlock(RSBlocks.ULTIMATE_IMPORTER);
+        registerBlock(RSBlocks.CREATIVE_IMPORTER);
+        registerBlock(RSBlocks.ADVANCED_EXPORTER);
+        registerBlock(RSBlocks.ELITE_EXPORTER);
+        registerBlock(RSBlocks.ULTIMATE_EXPORTER);
+        registerBlock(RSBlocks.CREATIVE_EXPORTER);
+        registerBlock(RSBlocks.REQUESTER);
+        //WIP
+        registerBlock(RSBlocks.EXPOSER);
+        registerBlock(RSBlocks.FLUID_EXPOSER);
 
         registerItem(RSItems.QUARTZ_ENRICHED_IRON);
         registerItem(RSItems.PROCESSOR_BINDING);
@@ -323,6 +342,8 @@ public class ProxyCommon {
                 new ItemStack(RSItems.PROCESSOR, 1, ItemProcessor.TYPE_IMPROVED), 0.5F);
         GameRegistry.addSmelting(new ItemStack(RSItems.PROCESSOR, 1, ItemProcessor.TYPE_CUT_ADVANCED),
                 new ItemStack(RSItems.PROCESSOR, 1, ItemProcessor.TYPE_ADVANCED), 0.5F);
+        GameRegistry.addSmelting(new ItemStack(RSItems.PROCESSOR, 1, ItemProcessor.TYPE_CUT_NEURAL),
+                new ItemStack(RSItems.PROCESSOR, 1, ItemProcessor.TYPE_NEURAL), 0.5F);
 
         if (IntegrationOC.isLoaded()) {
             DriverNetwork.register();

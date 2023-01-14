@@ -21,6 +21,9 @@ public class ItemProcessor extends ItemBase {
     public static final int TYPE_IMPROVED = 4;
     public static final int TYPE_ADVANCED = 5;
 
+    public static final int TYPE_CUT_NEURAL = 6;
+    public static final int TYPE_NEURAL = 7;
+
     public ItemProcessor() {
         super(new ItemInfo(RS.ID, "processor"));
 
@@ -38,7 +41,9 @@ public class ItemProcessor extends ItemBase {
             new ResourceLocation(RS.ID, "raw_advanced_processor"),
             new ResourceLocation(RS.ID, "basic_processor"),
             new ResourceLocation(RS.ID, "improved_processor"),
-            new ResourceLocation(RS.ID, "advanced_processor")
+            new ResourceLocation(RS.ID, "advanced_processor"),
+            new ResourceLocation(RS.ID, "raw_neural_processor"),
+            new ResourceLocation(RS.ID, "neural_processor")
         );
 
         modelRegistration.setModel(this, TYPE_CUT_BASIC, new ModelResourceLocation(RS.ID + ":raw_basic_processor", "inventory"));
@@ -47,6 +52,8 @@ public class ItemProcessor extends ItemBase {
         modelRegistration.setModel(this, TYPE_BASIC, new ModelResourceLocation(RS.ID + ":basic_processor", "inventory"));
         modelRegistration.setModel(this, TYPE_IMPROVED, new ModelResourceLocation(RS.ID + ":improved_processor", "inventory"));
         modelRegistration.setModel(this, TYPE_ADVANCED, new ModelResourceLocation(RS.ID + ":advanced_processor", "inventory"));
+        modelRegistration.setModel(this, TYPE_CUT_NEURAL, new ModelResourceLocation(RS.ID + ":raw_neural_processor", "inventory"));
+        modelRegistration.setModel(this, TYPE_NEURAL, new ModelResourceLocation(RS.ID + ":neural_processor", "inventory"));
     }
 
     @Override
@@ -55,7 +62,7 @@ public class ItemProcessor extends ItemBase {
             return;
         }
 
-        for (int i = 0; i <= 5; ++i) {
+        for (int i = 0; i <= 7; ++i) {
             items.add(new ItemStack(this, 1, i));
         }
     }

@@ -29,6 +29,7 @@ import net.minecraftforge.fml.relauncher.SideOnly;
 import javax.annotation.Nonnull;
 
 public class BlockStorage extends BlockNode {
+
     public static final PropertyEnum<ItemStorageType> TYPE = PropertyEnum.create("type", ItemStorageType.class);
 
     public BlockStorage() {

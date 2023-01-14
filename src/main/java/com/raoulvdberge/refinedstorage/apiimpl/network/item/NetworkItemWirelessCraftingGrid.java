@@ -32,7 +32,10 @@ public class NetworkItemWirelessCraftingGrid extends NetworkItemWirelessGrid {
 
     @Override
     public boolean onOpen(final INetwork network) {
-        if (RS.INSTANCE.config.wirelessCraftingGridUsesEnergy && this.stack.getItemDamage() != ItemEnergyItem.TYPE_CREATIVE && this.stack.getCapability(CapabilityEnergy.ENERGY, null).getEnergyStored() <= RS.INSTANCE.config.wirelessCraftingGridOpenUsage) {
+        if (RS.INSTANCE.config.wirelessCraftingGridUsesEnergy
+                && this.stack.getItemDamage() != ItemEnergyItem.TYPE_CREATIVE
+                && this.stack.getCapability(CapabilityEnergy.ENERGY, null).getEnergyStored()
+                <= RS.INSTANCE.config.wirelessCraftingGridOpenUsage) {
             return false;
         }
         if (!network.getSecurityManager().hasPermission(Permission.MODIFY, this.player)) {

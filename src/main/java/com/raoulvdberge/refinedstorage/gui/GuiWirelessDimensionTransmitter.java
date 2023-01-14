@@ -21,7 +21,7 @@ public class GuiWirelessDimensionTransmitter extends GuiBase {
 
     @Override
     public void drawBackground(int x, int y, int mouseX, int mouseY) {
-        bindTexture("gui/wireless_dimension_transmitter.png");
+        bindTexture("gui/wireless_transmitter_dimension.png");
         drawTexture(x, y, 0, 0, screenWidth, screenHeight);
     }
 

@@ -31,7 +31,7 @@ public class GuiConstructor extends GuiBase {
 
     @Override
     public void drawBackground(int x, int y, int mouseX, int mouseY) {
-        bindTexture("gui/constructor.png");
+        bindTexture("gui/constructor_storage_monitor.png");
 
         drawTexture(x, y, 0, 0, screenWidth, screenHeight);
     }

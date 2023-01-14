@@ -1,0 +1,25 @@
+{
+  "forge_marker": 1,
+  "defaults": {
+    "model": "refinedstorage:exposer",
+    "textures": {
+      "all": "refinedstorage:blocks/exposer"
+    }
+  },
+  "variants": {
+    "inventory": [
+      {
+        "transform": "forge:default-block"
+      }
+    ],
+    "connected": {
+      "true": {
+        "textures": {
+          "all": "refinedstorage:blocks/exposer"
+        }
+      },
+      "false": {
+      }
+    }
+  }
+}

@@ -69,7 +69,8 @@ public class ItemHandlerUpgrade extends ItemHandlerBase {
     }
 
     public int getItemInteractCount() {
-        return hasUpgrade(ItemUpgrade.TYPE_STACK) ? 64 : 1;
+        return hasUpgrade(ItemUpgrade.TYPE_EXTREME_STACK) ? 65536 : hasUpgrade(ItemUpgrade.TYPE_STACK) ? 64 : 1;
+        //return hasUpgrade(ItemUpgrade.TYPE_STACK) ? 64 : 1;
     }
 
     @Override

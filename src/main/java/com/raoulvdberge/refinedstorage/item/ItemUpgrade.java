@@ -30,6 +30,7 @@ public class ItemUpgrade extends ItemBase {
     public static final int TYPE_REGULATOR = 10;
     public static final int TYPE_CREATIVE_RANGE = 11;
     public static final int TYPE_DIMENSION_CARD=12;
+    public static final int TYPE_EXTREME_STACK = 13;
 
     public ItemUpgrade() {
         super(new ItemInfo(RS.ID, "upgrade"));
@@ -51,7 +52,8 @@ public class ItemUpgrade extends ItemBase {
             new ResourceLocation(RS.ID, "fortune_upgrade"),
             new ResourceLocation(RS.ID, "regulator_upgrade"),
             new ResourceLocation(RS.ID, "infinity_card"),
-            new ResourceLocation(RS.ID, "dimension_card")
+            new ResourceLocation(RS.ID, "dimension_card"),
+            new ResourceLocation(RS.ID,"extreme_stack_upgrade")
         );
 
         modelRegistration.setModel(this, 0, new ModelResourceLocation(RS.ID + ":upgrade", "inventory"));
@@ -66,11 +68,13 @@ public class ItemUpgrade extends ItemBase {
         modelRegistration.setModel(this, TYPE_FORTUNE_2, new ModelResourceLocation(RS.ID + ":fortune_upgrade", "inventory"));
         modelRegistration.setModel(this, TYPE_FORTUNE_3, new ModelResourceLocation(RS.ID + ":fortune_upgrade", "inventory"));
         modelRegistration.setModel(this, TYPE_REGULATOR, new ModelResourceLocation(RS.ID + ":regulator_upgrade", "inventory"));
+        modelRegistration.setModel(this, TYPE_EXTREME_STACK, new ModelResourceLocation(RS.ID + ":extreme_stack_upgrade","inventory"));
+
     }
 
     @Override
     public boolean hasEffect(ItemStack stack) {
-        return stack.getMetadata() == TYPE_SILK_TOUCH ||stack.getMetadata() == TYPE_CREATIVE_RANGE ||stack.getMetadata() == TYPE_DIMENSION_CARD || getFortuneLevel(stack) > 0;
+        return stack.getMetadata() == TYPE_SILK_TOUCH ||stack.getMetadata() == TYPE_CREATIVE_RANGE ||stack.getMetadata() == TYPE_DIMENSION_CARD || stack.getMetadata() == TYPE_EXTREME_STACK || getFortuneLevel(stack) > 0;
     }
 
     @Override
@@ -88,7 +92,7 @@ public class ItemUpgrade extends ItemBase {
             return;
         }
 
-       for (int i = 0; i <= 12; ++i) {
+       for (int i = 0; i <= 13; ++i) {
            if (i != 5) { // Removal of interdimensional upgrade
                 items.add(new ItemStack(this, 1, i));
           }

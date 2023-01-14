@@ -1,0 +1,165 @@
+{
+  "__comment": "Model generated using MrCrayfish's Model Creator (http://mrcrayfish.com/modelcreator/)",
+  "elements": [
+    {
+      "name": "Line1",
+      "from": [
+        6.0,
+        6.0,
+        4.0
+      ],
+      "to": [
+        10.0,
+        10.0,
+        6.0
+      ],
+      "faces": {
+        "north": {
+          "texture": "#border",
+          "uv": [
+            11, 1, 15, 5
+          ]
+        },
+        "east": {
+          "texture": "#border",
+          "rotation": 90,
+          "uv": [
+            10, 4, 6, 2
+          ]
+        },
+        "south": {
+          "texture": "#border",
+          "uv": [
+            11, 1, 15, 5
+          ]
+        },
+        "west": {
+          "texture": "#border",
+          "rotation": 270,
+          "uv": [
+            10, 4, 6, 2
+          ]
+        },
+        "up": {
+          "texture": "#border",
+          "uv": [
+            6, 4, 10, 2
+          ]
+        },
+        "down": {
+          "texture": "#border",
+          "uv": [
+            6, 2, 10, 4
+          ]
+        }
+      }
+    },
+    {
+      "name": "Line2",
+      "from": [
+        5.0,
+        5.0,
+        2.0
+      ],
+      "to": [
+        11.0,
+        11.0,
+        4.0
+      ],
+      "faces": {
+        "north": {
+          "texture": "#border",
+          "uv": [
+            10, 0, 16, 6
+          ]
+        },
+        "east": {
+          "texture": "#border",
+          "rotation": 90,
+          "uv": [
+            0, 4, 6, 2
+          ]
+        },
+        "south": {
+          "texture": "#border",
+          "uv": [
+            10, 0, 16, 6
+          ]
+        },
+        "west": {
+          "texture": "#border",
+          "rotation": 270,
+          "uv": [
+            6, 4, 0, 2
+          ]
+        },
+        "up": {
+          "texture": "#border",
+          "uv": [
+            0, 4, 6, 2
+          ]
+        },
+        "down": {
+          "texture": "#border",
+          "uv": [
+            0, 2, 6, 4
+          ]
+        }
+      }
+    },
+    {
+      "name": "Line3",
+      "from": [
+        3.0,
+        3.0,
+        0.0
+      ],
+      "to": [
+        13.0,
+        13.0,
+        2.0
+      ],
+      "faces": {
+        "north": {
+          "texture": "#border",
+          "uv": [
+            0, 4, 10, 14
+          ]
+        },
+        "east": {
+          "texture": "#border",
+          "rotation": 90,
+          "uv": [
+            10, 2, 0, 0
+          ]
+        },
+        "south": {
+          "texture": "#border",
+          "uv": [
+            0, 4, 10, 14
+          ]
+        },
+        "west": {
+          "texture": "#border",
+          "rotation": 270,
+          "uv": [
+            0, 2, 10, 0
+          ]
+        },
+        "up": {
+          "texture": "#border",
+          "uv": [
+            0, 2, 10, 0
+          ]
+        },
+        "down": {
+          "texture": "#border",
+          "rotation": 180,
+          "uv": [
+            0, 2, 10, 0
+          ]
+        }
+      }
+    }
+  ]
+}

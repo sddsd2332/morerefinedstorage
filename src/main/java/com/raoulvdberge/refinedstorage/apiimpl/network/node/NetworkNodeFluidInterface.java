@@ -56,7 +56,7 @@ public class NetworkNodeFluidInterface extends NetworkNode implements IUpgradeCo
     private final ItemHandlerBase in = new ItemHandlerBase(1, new ListenerNetworkNode(this), stack -> StackUtils.getFluid(stack, true).getRight() != null);
     private final FluidInventory out = new FluidInventory(1, TANK_CAPACITY, new ListenerNetworkNode(this));
 
-    private final ItemHandlerUpgrade upgrades = new ItemHandlerUpgrade(4, new ListenerNetworkNode(this), ItemUpgrade.TYPE_SPEED, ItemUpgrade.TYPE_STACK, ItemUpgrade.TYPE_CRAFTING);
+    private final ItemHandlerUpgrade   upgrades = new ItemHandlerUpgrade(4, new ListenerNetworkNode(this), ItemUpgrade.TYPE_SPEED, ItemUpgrade.TYPE_STACK, ItemUpgrade.TYPE_CRAFTING);
 
     public NetworkNodeFluidInterface(World world, BlockPos pos) {
         super(world, pos);

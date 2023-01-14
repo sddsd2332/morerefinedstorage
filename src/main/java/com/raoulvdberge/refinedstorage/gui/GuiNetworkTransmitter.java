@@ -25,13 +25,16 @@ public class GuiNetworkTransmitter extends GuiBase {
 
     @Override
     public void drawBackground(int x, int y, int mouseX, int mouseY) {
-        bindTexture("gui/network_transmitter.png");
-
+        bindTexture("gui/requester_network_transmitter.png");
         drawTexture(x, y, 0, 0, screenWidth, screenHeight);
+
     }
 
     @Override
     public void drawForeground(int mouseX, int mouseY) {
+        bindTexture("icons.png");
+        drawTexture(29 + 9,19,238,73,18,18);
+
         drawString(7, 7, t("gui.refinedstorage:network_transmitter"));
 
         String distance;
@@ -46,7 +49,7 @@ public class GuiNetworkTransmitter extends GuiBase {
             distance = t("gui.refinedstorage:network_transmitter.missing_card");
         }
 
-        drawString(51, 24, distance);
+        drawString(51 + 9, 24, distance);
         drawString(7, 42, t("container.inventory"));
     }
 }

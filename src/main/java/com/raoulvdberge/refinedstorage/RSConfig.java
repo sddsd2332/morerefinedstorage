@@ -26,6 +26,7 @@ public class RSConfig {
     public int goldcrafterUsage;
     public int diamondcrafterUsage;
     public int emeraldcrafterUsage;
+    public int creativecrafterUsage;
     public int crafterPerPatternUsage;
     public int craftingMonitorUsage;
     public int crafterManagerUsage;
@@ -53,6 +54,10 @@ public class RSConfig {
     public int diskManipulatorUsage;
     public int securityManagerUsage;
     public int securityManagerPerSecurityCardUsage;
+    public int exposerUsage;
+    public int fluidexposerUsage;
+    public int requesterUsage;
+    public int storagemonitorUsage;
     //endregion
 
     //region Controller
@@ -85,6 +90,12 @@ public class RSConfig {
     public boolean wirelessCraftingGridUsesEnergy;
     public int wirelessCraftingGridCraftUsage;
     public int wirelessCraftingGridOpenUsage;
+    //endregion
+
+    //region Pattern Grid
+    public boolean patternGridUsesEnergy;
+    public int patternGridCraftUsage;
+    public int patternGridOpenUsage;
     //endregion
 
     //region Portable Grid
@@ -133,6 +144,7 @@ public class RSConfig {
 
     //region Autocrafting
     public int calculationTimeoutMs;
+    public int maxcraftamount;
     //endregion
 
     //region Categories
@@ -142,6 +154,7 @@ public class RSConfig {
     private static final String WIRELESS_TRANSMITTER = "wirelessTransmitter";
     private static final String WIRELESS_GRID = "wirelessGrid";
     private static final String WIRELESS_CRAFTING_GRID = "wirelessCraftingGrid";
+    private static final String WIRELESS_PATTERN_GRID = "wirelessPatternGrid";
     private static final String PORTABLE_GRID = "portableGrid";
     private static final String WIRELESS_FLUID_GRID = "wirelessFluidGrid";
     private static final String WIRELESS_CRAFTING_MONITOR = "wirelessCraftingMonitor";
@@ -193,6 +206,7 @@ public class RSConfig {
         goldcrafterUsage = config.getInt("goldcrafter", ENERGY, 30, 1, Integer.MAX_VALUE, "The base energy used by Gold Crafters");
         diamondcrafterUsage = config.getInt("diamondcrafter", ENERGY, 45, 1, Integer.MAX_VALUE, "The base energy used by Diamond Crafters");
         emeraldcrafterUsage = config.getInt("emeraldcrafter", ENERGY, 60, 1, Integer.MAX_VALUE, "The base energy used by Emerald Crafters");
+        creativecrafterUsage = config.getInt("creativecrafter", ENERGY, 1, 1, Integer.MAX_VALUE, "The base energy used by Creative Crafters");
 
         crafterPerPatternUsage = config.getInt("crafterPerPattern", ENERGY, 1, 0, Integer.MAX_VALUE, "The additional energy used per Pattern in a Crafter");
         craftingMonitorUsage = config.getInt("craftingMonitor", ENERGY, 2, 0, Integer.MAX_VALUE, "The energy used by Crafting Monitors");
@@ -221,6 +235,10 @@ public class RSConfig {
         diskManipulatorUsage = config.getInt("diskManipulator", ENERGY, 3, 0, Integer.MAX_VALUE, "The energy used by Disk Manipulators");
         securityManagerUsage = config.getInt("securityManager", ENERGY, 4, 1, Integer.MAX_VALUE, "The base energy used by Security Managers");
         securityManagerPerSecurityCardUsage = config.getInt("securityManagerPerSecurityCard", ENERGY, 10, 0, Integer.MAX_VALUE, "The additional energy used by Security Cards in Security Managers");
+        exposerUsage = config.getInt("exposerUsage", ENERGY, 10, 1, Integer.MAX_VALUE, "The energy used by Exposer");
+        fluidexposerUsage = config.getInt("fluidexposerUsage", ENERGY, 10, 1, Integer.MAX_VALUE, "The energy used by Fluid Exposer");
+        requesterUsage = config.getInt("requesterUsage", ENERGY, 10, 1, Integer.MAX_VALUE, "The energy used by Requester");
+        storagemonitorUsage = config.getInt("storagemonitorUsage", ENERGY, 0, 0, Integer.MAX_VALUE, "The energy used by Storage Monitor");
         //endregion
 
         //region Controller
@@ -253,6 +271,12 @@ public class RSConfig {
         wirelessCraftingGridUsesEnergy = config.getBoolean("usesEnergy", WIRELESS_CRAFTING_GRID, true, "Whether the Wireless Crafting Grid uses energy");
         wirelessCraftingGridCraftUsage = config.getInt("craft", WIRELESS_CRAFTING_GRID, 1, 0, Integer.MAX_VALUE, "The energy used by the Wireless Crafting Grid when crafting");
         wirelessCraftingGridOpenUsage = config.getInt("open", WIRELESS_CRAFTING_GRID, 30, 0, Integer.MAX_VALUE, "The energy used by the Wireless Crafting Grid to open");
+        //endregion
+
+        //region Pattern Grid
+        patternGridUsesEnergy = config.getBoolean("usesEnergy", WIRELESS_PATTERN_GRID, true, "Whether the Pattern Grid uses energy");
+        patternGridCraftUsage = config.getInt("craft", WIRELESS_PATTERN_GRID, 1, 0, Integer.MAX_VALUE, "The energy used by the Pattern Grid when Pattern");
+        patternGridOpenUsage = config.getInt("open", WIRELESS_PATTERN_GRID, 30, 0, Integer.MAX_VALUE, "The energy used by the Pattern Grid to open");
         //endregion
 
         //region Portable Grid
@@ -301,6 +325,7 @@ public class RSConfig {
 
         //region Autocrafting
         calculationTimeoutMs = config.getInt("calculationTimeoutMs", AUTOCRAFTING, 5000, 5000, Integer.MAX_VALUE, "The autocrafting calculation timeout in milliseconds, tasks taking longer than this to calculate (NOT execute) are cancelled to avoid server strain");
+        maxcraftamount = config.getInt("maxcraftamount",AUTOCRAFTING,1000 , 1, Integer.MAX_VALUE, "The maximum amount requested as a craft by the Requester. It will still achieve the desired amount but in smaller crafting batches. (A sanity server check)");
         //endregion
 
         if (config.hasChanged()) {
@@ -315,10 +340,14 @@ public class RSConfig {
         list.add(new ConfigElement(config.getCategory(CONTROLLER)));
         list.add(new ConfigElement(config.getCategory(UPGRADES)));
         list.add(new ConfigElement(config.getCategory(WIRELESS_TRANSMITTER)));
+            //无限终端
         list.add(new ConfigElement(config.getCategory(GRID)));
         list.add(new ConfigElement(config.getCategory(WIRELESS_GRID)));
+        list.add(new ConfigElement(config.getCategory(WIRELESS_CRAFTING_GRID)));
+        list.add(new ConfigElement(config.getCategory(WIRELESS_PATTERN_GRID)));
         list.add(new ConfigElement(config.getCategory(WIRELESS_FLUID_GRID)));
         list.add(new ConfigElement(config.getCategory(WIRELESS_CRAFTING_MONITOR)));
+
         list.add(new ConfigElement(config.getCategory(PORTABLE_GRID)));
         list.add(new ConfigElement(config.getCategory(READER_WRITER)));
         list.add(new ConfigElement(config.getCategory(COVERS)));

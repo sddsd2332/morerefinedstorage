@@ -5,11 +5,16 @@ import com.raoulvdberge.refinedstorage.apiimpl.network.node.IGuiReaderWriter;
 import com.raoulvdberge.refinedstorage.apiimpl.network.node.NetworkNodeCraftingMonitor;
 import com.raoulvdberge.refinedstorage.container.*;
 import com.raoulvdberge.refinedstorage.container.advancedCrafter.*;
+import com.raoulvdberge.refinedstorage.container.advancedExporter.*;
+import com.raoulvdberge.refinedstorage.container.advancedImporter.*;
 import com.raoulvdberge.refinedstorage.gui.advancedCrafter.*;
+import com.raoulvdberge.refinedstorage.gui.advancedExporter.*;
+import com.raoulvdberge.refinedstorage.gui.advancedImporter.*;
 import com.raoulvdberge.refinedstorage.tile.*;
 import com.raoulvdberge.refinedstorage.tile.advancedCrafter.*;
-import com.raoulvdberge.refinedstorage.tile.craftingmonitor.TileCraftingMonitor;
-import com.raoulvdberge.refinedstorage.tile.craftingmonitor.WirelessCraftingMonitor;
+import com.raoulvdberge.refinedstorage.tile.advancedExporter.*;
+import com.raoulvdberge.refinedstorage.tile.advancedImporter.*;
+import com.raoulvdberge.refinedstorage.tile.craftingmonitor.*;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.Container;
 import net.minecraft.tileentity.TileEntity;
@@ -27,8 +32,26 @@ public class GuiHandler implements IGuiHandler {
                 return new ContainerDiskDrive((TileDiskDrive) tile, player);
             case RSGui.IMPORTER:
                 return new ContainerImporter((TileImporter) tile, player);
+            case RSGui.ADVANCED_IMPORTER:
+                return new ContainerAdvancedImporter((TileAdvancedImporter) tile,player);
+            case RSGui.ELITE_IMPORTER:
+                return new ContainerEliteImporter((TileEliteImporter) tile,player);
+            case RSGui.ULTIMATE_IMPORTER:
+                return new ContainerUltimateImporter((TileUltimateImporter) tile,player);
+            case RSGui.CREATIVE_IMPORTER:
+                return new ContainerCreativeImporter((TileCreativeImporter) tile,player);
             case RSGui.EXPORTER:
                 return new ContainerExporter((TileExporter) tile, player);
+            case RSGui.REQUESTER:
+                return new ContainerRequester((TileRequester) tile , player);
+            case RSGui.ADVANCED_EXPORTER:
+                return new ContainerAdvancedExporter((TileAdvancedExporter) tile, player);
+            case RSGui.ELITE_EXPORTER:
+                return new ContainerEliteExporter((TileEliteExporter) tile, player);
+            case RSGui.ULTIMATE_EXPORTER:
+                return new ContainerUltimateExporter((TileUltimateExporter) tile, player);
+            case RSGui.CREATIVE_EXPORTER:
+                return new ContainerCreativeExporter((TileCreativeExporter) tile, player);
             case RSGui.DETECTOR:
                 return new ContainerDetector((TileDetector) tile, player);
             case RSGui.DESTRUCTOR:
@@ -59,6 +82,8 @@ public class GuiHandler implements IGuiHandler {
                 return new ContainerDiamondCrafter((TileDiamondCrafter) tile, player);
             case RSGui.EMERALDCRAFTER:
                 return new ContainerEmeraldCrafter((TileEmeraldCrafter) tile, player);
+            case RSGui.CREATIVECRAFTER:
+                return new ContainerCreativeCrafter((TileCreativeCrafter) tile, player);
             case RSGui.NETWORK_TRANSMITTER:
                 return new ContainerNetworkTransmitter((TileNetworkTransmitter) tile, player);
             case RSGui.FLUID_INTERFACE:
@@ -102,8 +127,26 @@ public class GuiHandler implements IGuiHandler {
                 return new GuiStorage((ContainerDiskDrive) getContainer(id, player, tile), ((TileDiskDrive) tile).getNode(), "gui/disk_drive.png");
             case RSGui.IMPORTER:
                 return new GuiImporter((ContainerImporter) getContainer(id, player, tile));
+            case RSGui.ADVANCED_IMPORTER:
+                return new GuiAdvancedImporter((ContainerAdvancedImporter)getContainer(id, player, tile));
+            case RSGui.ELITE_IMPORTER:
+                return new GuiEliteImporter((ContainerEliteImporter)getContainer(id, player, tile));
+            case RSGui.ULTIMATE_IMPORTER:
+                return new GuiUltimateImporter((ContainerUltimateImporter)getContainer(id, player, tile));
+            case RSGui.CREATIVE_IMPORTER:
+                return new GuiCreativeImporter((ContainerCreativeImporter)getContainer(id, player, tile));
             case RSGui.EXPORTER:
                 return new GuiExporter((ContainerExporter) getContainer(id, player, tile));
+            case RSGui.REQUESTER:
+                return new GuiRequester((ContainerRequester) getContainer(id, player, tile));
+            case RSGui.ADVANCED_EXPORTER:
+                return new GuiAdvancedExporter((ContainerAdvancedExporter) getContainer(id, player, tile));
+            case RSGui.ELITE_EXPORTER:
+                return new GuiEliteExporter((ContainerEliteExporter) getContainer(id, player, tile));
+            case RSGui.ULTIMATE_EXPORTER:
+                return new GuiUltimateExporter((ContainerUltimateExporter)getContainer(id, player, tile));
+            case RSGui.CREATIVE_EXPORTER:
+                return new GuiCreativeExporter((ContainerCreativeExporter)getContainer(id, player, tile));
             case RSGui.DETECTOR:
                 return new GuiDetector((ContainerDetector) getContainer(id, player, tile));
             case RSGui.DESTRUCTOR:
@@ -137,6 +180,8 @@ public class GuiHandler implements IGuiHandler {
                 return new GuiDiamondCrafter((ContainerDiamondCrafter) getContainer(id, player, tile));
             case RSGui.EMERALDCRAFTER:
                 return new GuiEmeraldCrafter((ContainerEmeraldCrafter) getContainer(id, player, tile));
+            case RSGui.CREATIVECRAFTER:
+                return new GuiCreativeCrafter((ContainerCreativeCrafter) getContainer(id, player, tile));
             case RSGui.FILTER:
                 return new GuiFilter(getFilterContainer(player, x));
             case RSGui.NETWORK_TRANSMITTER:

@@ -59,11 +59,28 @@ public class BakedModelCableCover extends BakedModelDelegate {
         BlockBase block = (BlockBase) state.getBlock();
 
         if (block.getDirection() != null && state.getValue(block.getDirection().getProperty()) == coverSide) {
-            if (block == RSBlocks.CABLE || block == RSBlocks.EXPORTER) {
+            if (block == RSBlocks.CABLE
+                    || block == RSBlocks.EXPORTER
+                    || block == RSBlocks.ADVANCED_EXPORTER
+                    || block == RSBlocks.ELITE_EXPORTER
+                    || block == RSBlocks.ULTIMATE_EXPORTER
+                    || block == RSBlocks.CREATIVE_EXPORTER
+            ) {
                 return 6;
-            } else if (block == RSBlocks.EXTERNAL_STORAGE || block == RSBlocks.IMPORTER) {
+            } else if (block == RSBlocks.EXTERNAL_STORAGE
+                    || block == RSBlocks.IMPORTER
+                    || block == RSBlocks.ADVANCED_IMPORTER
+                    || block == RSBlocks.ELITE_IMPORTER
+                    || block == RSBlocks.ULTIMATE_IMPORTER
+                    || block == RSBlocks.CREATIVE_IMPORTER
+
+
+            ) {
                 return 3;
-            } else if (block == RSBlocks.CONSTRUCTOR || block == RSBlocks.DESTRUCTOR || block == RSBlocks.READER || block == RSBlocks.WRITER) {
+            } else if (block == RSBlocks.CONSTRUCTOR
+                    || block == RSBlocks.DESTRUCTOR
+                    || block == RSBlocks.READER
+                    || block == RSBlocks.WRITER) {
                 return 2;
             }
         }

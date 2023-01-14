@@ -36,9 +36,10 @@ public class NetworkItemWirelessGrid implements INetworkItem {
 
     @Override
     public boolean onOpen(INetwork network) {
-        if (RS.INSTANCE.config.wirelessGridUsesEnergy && stack.getItemDamage() != ItemWirelessGrid.TYPE_CREATIVE &&
-                stack.getCapability(CapabilityEnergy.ENERGY, null).getEnergyStored() <=
-                        RS.INSTANCE.config.wirelessGridOpenUsage) {
+        if (RS.INSTANCE.config.wirelessGridUsesEnergy
+                && stack.getItemDamage() != ItemWirelessGrid.TYPE_CREATIVE
+                && stack.getCapability(CapabilityEnergy.ENERGY, null).getEnergyStored()
+                <= RS.INSTANCE.config.wirelessGridOpenUsage) {
             sendOutOfEnergyMessage();
             return false;
         }

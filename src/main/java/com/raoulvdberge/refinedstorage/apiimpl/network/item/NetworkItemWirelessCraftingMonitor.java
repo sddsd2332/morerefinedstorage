@@ -33,7 +33,10 @@ public class NetworkItemWirelessCraftingMonitor implements INetworkItem {
 
     @Override
     public boolean onOpen(INetwork network) {
-        if (RS.INSTANCE.config.wirelessCraftingMonitorUsesEnergy && stack.getItemDamage() != ItemWirelessCraftingMonitor.TYPE_CREATIVE && stack.getCapability(CapabilityEnergy.ENERGY, null).getEnergyStored() <= RS.INSTANCE.config.wirelessCraftingMonitorOpenUsage) {
+        if (RS.INSTANCE.config.wirelessCraftingMonitorUsesEnergy
+                && stack.getItemDamage() != ItemWirelessCraftingMonitor.TYPE_CREATIVE
+                && stack.getCapability(CapabilityEnergy.ENERGY, null).getEnergyStored()
+                <= RS.INSTANCE.config.wirelessCraftingMonitorOpenUsage) {
             return false;
         }
 

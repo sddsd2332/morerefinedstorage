@@ -1,5 +1,6 @@
 package com.raoulvdberge.refinedstorage.apiimpl.network.node;
 
+import com.raoulvdberge.refinedstorage.RS;
 import com.raoulvdberge.refinedstorage.api.network.security.Permission;
 import com.raoulvdberge.refinedstorage.api.util.Action;
 import com.raoulvdberge.refinedstorage.api.util.StackListEntry;
@@ -120,7 +121,7 @@ public class NetworkNodeStorageMonitor extends NetworkNode implements IRSFilterC
 
         ItemStack filter = this.config.getItemHandler().getStackInSlot(0);
 
-        int toExtract = player.isSneaking() ? 1 : 64;
+        int toExtract = player.isSneaking() ? 1 : filter.getMaxStackSize();
 
         if (!filter.isEmpty()) {
             ItemStack result = network.extractItem(filter, toExtract, this.config.getCompare(), Action.PERFORM);
@@ -133,7 +134,7 @@ public class NetworkNodeStorageMonitor extends NetworkNode implements IRSFilterC
 
     @Override
     public int getEnergyUsage() {
-        return 0;
+        return RS.INSTANCE.config.storagemonitorUsage;
     }
 
     @Override
